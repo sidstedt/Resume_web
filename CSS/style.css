@@ -1,0 +1,241 @@
+/* set the standard text format and color and box-control */
+* {
+    font-family: 'Courier New', Courier, 'Courier New';
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}   
+
+/* Body */
+body {
+    background-color: lemonchiffon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navbar-container used to fill the "top" */
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* using flex and wrap to spread links from center */
+.navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+}
+
+/* Li-styling */
+.navbar li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* styling on links */
+.navbar li a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+/* Hover-effect */
+.navbar li a:hover {
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 1);
+    background-color: palegoldenrod;
+    outline: 2px solid black;
+}
+
+/* set active page as bold on link */
+.navbar .active a {
+    font-weight: bold;    
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Container for infopages */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 920px;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.5fr;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 1);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+/* Set the different columns */
+.container .left-side {
+    padding: 40px;
+    border-radius: 15px 0px 0px 15px;
+    -webkit-border-radius: 15px 0px 0px 15px;
+    -moz-border-radius: 15px 0px 0px 15px;
+    -ms-border-radius: 15px 0px 0px 15px;
+    -o-border-radius: 15px 0px 0px 15px;
+}
+
+.container .right-side {
+    background-color: palegoldenrod;
+    padding: 40px;
+    border-radius: 0px 15px 15px 0px;   
+    -webkit-border-radius: 0px 15px 15px 0px;
+    -moz-border-radius: 0px 15px 15px 0px;
+    -ms-border-radius: 0px 15px 15px 0px;
+    -o-border-radius: 0px 15px 15px 0px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .container .left-side {
+        border-radius: 15px 15px 0px 0px;
+        -webkit-border-radius: 15px 15px 0px 0px;
+        -moz-border-radius: 15px 15px 0px 0px;
+        -ms-border-radius: 15px 15px 0px 0px;
+        -o-border-radius: 15px 15px 0px 0px;
+}
+    
+    .container .right-side {
+        border-radius: 0px 0px 15px 15px;
+        -webkit-border-radius: 0px 0px 15px 15px;
+        -moz-border-radius: 0px 0px 15px 15px;
+        -ms-border-radius: 0px 0px 15px 15px;
+        -o-border-radius: 0px 0px 15px 15px;
+}
+}
+
+.contact-box a {
+    text-decoration: none;
+}
+
+.contact-box li {
+    list-style-type: none;
+    padding-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.contact-box i {
+    font-size: 1.5rem;
+}
+
+.portfolio-item {
+    padding-bottom: 30px;
+}
+
+.portfolio-item a {
+    background-color: lemonchiffon;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    padding-top: 10px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+.button:hover {
+    font-weight: bold;
+}
+
+.portfolio-item h3 {
+    padding-bottom: 5px;
+}
+
+.modal {
+    visibility: hidden;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    max-width: 450px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.modal:target {
+    visibility: visible;
+}
+
+.close {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: red;
+    float: right;
+}
+
+.close:hover {
+    cursor: pointer;
+    color: darkred;
+}
+
+.img-container {
+    display: flex;
+    padding-top: 40px;
+    justify-content: center;
+}
+
+.img-content {
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
