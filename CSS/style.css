@@ -109,11 +109,6 @@ body {
 .container .right-side {
     background-color: palegoldenrod;
     padding: 40px;
-    border-radius: 0px 15px 15px 0px;   
-    -webkit-border-radius: 0px 15px 15px 0px;
-    -moz-border-radius: 0px 15px 15px 0px;
-    -ms-border-radius: 0px 15px 15px 0px;
-    -o-border-radius: 0px 15px 15px 0px;
 }
 
 @media (max-width: 768px) {
@@ -220,7 +215,7 @@ body {
 
 .close:hover {
     cursor: pointer;
-    color: darkred;
+    color: darkred !important;
 }
 
 .img-container {
@@ -238,4 +233,12 @@ body {
     -moz-border-radius: 35px;
     -ms-border-radius: 35px;
     -o-border-radius: 35px;
+}
+
+.modal-content a {
+    font-weight: bold;
+}
+
+.modal-content a:hover {
+    color: red;
 }
