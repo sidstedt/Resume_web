@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-}   
+}
 
 /* Body */
 body {
@@ -39,6 +39,10 @@ body {
 
 /* styling on links */
 .navbar li a {
+    font-family: "Syne", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     display: inline-block;
     text-decoration: none;
     font-size: 1.4rem;
