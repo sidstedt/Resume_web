@@ -1,0 +1,89 @@
+{
+    "education": [
+      {
+        "title": "El – Data",
+        "school": "Lindälvsgymnasiet, Kungsbacka",
+        "years": "2005-2007"
+      },
+      {
+        "title": "Komvux",
+        "school": "Göteborg/Borås",
+        "years": "2014-2015"
+      },
+      {
+        "title": "VVS-montör",
+        "school": "Movant, Varberg",
+        "years": "2022-2023"
+      }
+    ],
+    "experience": [
+      {
+        "company": "Ironman Demolition, Göteborg",
+        "years": "July 2007 - Jan 2010",
+        "position": "Demolition & Sanitation",
+        "responsibilities": [
+          "Performed various types of demolition work.",
+          "Asbestos removal and safe handling.",
+          "Learned about construction structures and machinery.",
+          "Worked as a team leader and coordinator."
+        ]
+      },
+      {
+        "company": "JMK Service & Sanering, Göteborg",
+        "years": "Feb 2010 - Feb 2018",
+        "position": "Sanitize & Sealant Applicator",
+        "responsibilities": [
+          "Worked on PCB sanitation and re-sealing of building elements.",
+          "Minor concrete repairs."
+        ]
+      },
+      {
+        "company": "Vallda Riv & Håltagning",
+        "years": "Feb 2018 - Aug 2022",
+        "position": "Concrete Cutting & Drilling",
+        "responsibilities": [
+          "Learned core drilling, wall sawing, and floor sawing.",
+          "Worked in customer service and project coordination.",
+          "Assisted with job estimation and scheduling."
+        ]
+      },
+      {
+        "company": "Varbergs Kommun",
+        "years": "Aug 2023 - Aug 2024",
+        "position": "Ice Resurfacer",
+        "responsibilities": [
+          "Operated ice machines and maintained facilities.",
+          "Handled incident reports, cashier tasks, and general maintenance."
+        ]
+      },
+      {
+        "company": "Varbergs Kommun",
+        "years": "May 2024 - June 2024",
+        "position": "Electoral Official",
+        "responsibilities": [
+          "Worked as a voting receiver during early voting and on the election day.",
+          "Managed various election-related tasks."
+        ]
+      },
+      {
+        "company": "Campus Varberg",
+        "years": "Aug 2024 - Present",
+        "position": ".Net System Development Student",
+        "responsibilities": [
+          "Learning object-oriented programming with C#",
+          "Developing web applications with ASP.NET",
+          "Working with databases and administration",
+          "Gaining experience in agile system development",
+          "Completing internships (LIA) in real-world projects"
+        ]
+      }
+    ],
+    "certifications": [
+      "Hot Work Certification",
+      "Mobile Platforms Certification",
+      "Personal Fall Protection",
+      "Silica Dust Safety",
+      "Secure Water Handling"
+    ]
+  }
+  
