@@ -8,6 +8,7 @@
 }
 h2, h3 {
     margin-bottom: 10px;
+    font-family: "Syne", serif;
 }
 
 p {
@@ -275,4 +276,78 @@ body {
 
 .modal-content a:hover {
     color: red;
+}
+
+.emoji {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #FBD043;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji::before {
+    content: "";
+    position: absolute;
+    top: 180px;
+    width: 150px;
+    height: 70px;
+    background: crimson;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    transition: 0.5s;
+}
+
+.eyes {
+    position: relative;
+    top: -40px;
+    display: flex;
+}
+
+.eyes .eye {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: block;
+    background: white;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.eyes .eye2 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: block;
+    background: white;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.eyes .eye, .eyes .eye2 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ser till att pupillen inte rör sig utanför ögat */
+}
+
+.eyes .eye::before, .eyes .eye2::before {
+    content: none; /* Ta bort den gamla pupillen */
+}
+
+.eyes .eye .pupil, .eyes .eye2 .pupil {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border-radius: 50%;
+    transition: transform 0.05s linear;
 }

@@ -1,23 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
+// RESUME SECTION
+
+document.addEventListener("DOMContentLoaded", async function() {
     if (window.location.pathname.includes("resume.html")) {
-    fetch("../resume.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to load resume.json");
-            }
-            return response.json();
-        })
-        .then(data => {
-            displayEducation(data.education);
-            displayExperience(data.experience);
-            displayCertifications(data.certifications);
-        })
-        .catch(error => console.error("Error loading resume data:", error));
-    }
-    else {
-        console.error("This script is only intended for the resume.html page.");
+        try {
+            const resumeData = await loadResumeData();
+            displayEducation(resumeData.education);
+            displayExperience(resumeData.experience);
+            displayCertifications(resumeData.certifications);
+        } catch (error) {
+            console.error("Error loading resume data:", error);
+        }
     }
 });
+
+async function loadResumeData() {
+    try {
+        const response = await fetch("/Data/resume.json");
+        if (!response.ok) {
+            throw new Error(`Failed to load resume.json: ${response.status} ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        throw new Error("Error fetching resume.json: " + error.message);
+    }
+}
 
 function displayEducation(education) {
     let educationContainer = document.getElementById("education-list");
@@ -75,7 +81,9 @@ function displayCertifications(certifications) {
     });
 }
 
-let secretCode = "1987";
+// EASTER EGG SECTION
+
+let secretCode = "1337";
 let inputCode = "";
 
 document.addEventListener("keydown", function (event) {
@@ -83,8 +91,11 @@ document.addEventListener("keydown", function (event) {
     if (inputCode.includes(secretCode)) {
         showEasterEgg();
         inputCode = "";
+        eyeTracking();
     }
 });
+
+// EASTER EGG EMOJI
 
 function showEasterEgg() {
     let modal = document.createElement("div");
@@ -93,15 +104,54 @@ function showEasterEgg() {
         <div class="modal-content">
             <a href="#" class="close" onclick="this.parentElement.parentElement.remove();">&times;</a>
             <h3>You have unlocked the Easter Egg!</h3>
+            <div class="emoji" >
+                <div class='eyes'>
+                    <div class='eye'>
+                        <div class='pupil'></div>
+                    </div>
+                    <div class='eye'>
+                        <div class='pupil'></div>
+                    </div>
+                </div>
+            </div>
         </div>`;
     document.body.appendChild(modal);
+
+    setTimeout(eyeTracking, 1000);
 }
+
+function eyeTracking() {
+    document.addEventListener("mousemove", function(event) {
+        let eyes = document.querySelectorAll('.eye');
+        eyes.forEach(eye => {
+            let pupil = eye.querySelector('.pupil');
+
+            let eyeRect = eye.getBoundingClientRect();
+            let eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            let eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+            let deltaX = event.pageX - eyeCenterX;
+            let deltaY = event.pageY - eyeCenterY;
+
+            let angle = Math.atan2(deltaY, deltaX);
+
+            let maxMove = 20;
+            let moveX = Math.cos(angle) * maxMove;
+            let moveY = Math.sin(angle) * maxMove;
+
+            pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+}
+
+// EASTER EGG COLOR CHANGE
 
 document.addEventListener("DOMContentLoaded", function() {
     let easterEgg = document.querySelector(".img-content");
     if (easterEgg) {
         easterEgg.addEventListener("click", function() {
             document.body.style.backgroundColor = getRandomColor();
+            document.getElementsByClassName("right-side")[0].style.backgroundColor = getRandomColor();
         });
     }
     function getRandomColor() {
@@ -113,4 +163,3 @@ document.addEventListener("DOMContentLoaded", function() {
         return color;
     }
 });
-
