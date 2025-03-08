@@ -48,7 +48,7 @@ function displayRepos(repos) {
 
         const repoHTML = `
         <div class="repo-wrapper ${index % 2 === 0 ? "bg-lemonchiffon" : "bg-palegoldenrod"}"
-            aria-label="GitHub repository: ${repoName}, ${repoDescription}">
+            aria-label="GitHub repository: ${repoName}, ${repoDescription}" tabindex="0">
             <div class="repo-content">
                 <h3>${repoName.replace(/_/g, " ")}</h3>
                 <div class="button">
@@ -60,7 +60,7 @@ function displayRepos(repos) {
             <!-- Modal (hidden) -->
             <div id="project${index}" class="modal" role="dialog" 
                 aria-labelledby="project-title${index}"
-                aria-describedby="project-description${index}">
+                aria-describedby="project-description${index}" tabindex="0">
                 <div class="modal-content">
                     <a href="#" class="close" onclick="hideRepoModal(${index}); return false;">&times;</a>
                     <h3>${repoName.replace(/_/g, " ")}</h3><br>
@@ -139,7 +139,7 @@ function displayErrorMessage(message) {
     let errorContainer = document.createElement("div");
     errorContainer.classList.add("error-message");
     errorContainer.setAttribute("role");
-    
+
     // Add role="alert" to the error container for accessibility
     let errorSymbol = document.createElement("span");
     errorSymbol.textContent = "⚠️";

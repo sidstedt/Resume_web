@@ -185,7 +185,7 @@ header {
     border: solid 1px black;
 }
 
-.edu-wrapper, .exp-wrapper, .repo-wrapper, .cert-wrapper {
+.edu-wrapper, .exp-wrapper, .repo-wrapper, .cert-wrapper, .wcag-wrapper {
     margin: 10px -40px;
     border-radius: 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px;
@@ -194,7 +194,7 @@ header {
     -o-border-radius: 15px 15px 15px 15px;
 }
 
-.edu-content, .exp-content, .repo-content, .cert-content {
+.edu-content, .exp-content, .repo-content, .cert-content, .wcag-content {
     background-color: inherit;
     padding: 15px 40px;
     border-radius: inherit;
@@ -216,6 +216,11 @@ header {
 
 .cert-wrapper::before {
     content: "📜 ";
+    font-size: 1.2rem;
+}
+
+.wcag-wrapper::before {
+    content: "🌐 ";
     font-size: 1.2rem;
 }
 

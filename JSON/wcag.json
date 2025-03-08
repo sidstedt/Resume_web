@@ -1,0 +1,142 @@
+[
+    {
+      "title": "Markera språket på sidan/sidorna",
+      "description": "Orden på sidan är endast på engelska. Vissa svenska städer och skolnamn som innehåller svenska bokstäver har ersatts med antingen 'a' eller 'o'."
+    },
+    {
+      "title": "Markera språket på ord",
+      "description": "Samma som ovan, jag har englified de svenska namnen till engelska, samt letat upp engelska motsvarigheter och ändrat därefter."
+    },
+    {
+      "title": "Använd inte enbart färg för att förmedla information",
+      "description": "Jag har lagt till ikoner i mina felmeddelanden så att användaren ska förstå att det är en felrapport."
+    },
+    {
+      "title": "Använd tillräcklig kontrast mellan text och bakgrund",
+      "description": "Jag använder svart färg på min text, och min bakgrund är ljus. Kontrasten ligger på cirka 10:1, vilket är tillräckligt."
+    },
+    {
+      "title": "Använd tillräcklig kontrast mellan länkar och bakgrund",
+      "description": "Samma som ovan."
+    },
+    {
+      "title": "Beskriv med text allt innehåll som inte är text",
+      "description": "Jag har lagt till alt-text på bilder och beskrivande information om olika element och ikoner."
+    },
+    {
+      "title": "Erbjud alternativ för fingerrörelser",
+      "description": "Hemsidan har inga interaktioner som kräver komplexa fingerrörelser. Alla funktioner går att använda med klick eller tangentbord."
+    },
+    {
+      "title": "Hoppa förbi återkommande innehåll",
+      "description": "Användaren kan trycka på tabb och få upp en snabblänk och komma direkt till huvudinnehållet."
+    },
+    {
+      "title": "Förmedla information, struktur och innehåll",
+      "description": "Har använt mig av semantisk struktur, och använt h-taggar i följd, sektioner, ul och li m.m."
+    },
+    {
+      "title": "Gör det möjligt att pausa, stänga av eller sänka ljud",
+      "description": "Hemsidan använder inget ljud."
+    },
+    {
+      "title": "Gör det möjligt att justera tidsbegränsningar",
+      "description": "Hemsidan har inga tidsbegränsningar."
+    },
+    {
+      "title": "Gör det möjligt att pausa eller stänga av rörelser",
+      "description": "Hemsidan har inga rörelser som kan tänkas behöva pausas eller stängas av."
+    },
+    {
+      "title": "Ge förslag på hur fel kan rättas till",
+      "description": "Hemsidan har inga formulär eller liknande fält."
+    },
+    {
+      "title": "Ge möjlighet att ångra, korrigera eller bekräfta vid viktiga transaktioner",
+      "description": "Hemsidan har inga sådana funktioner."
+    },
+    {
+      "title": "Gör det möjligt att ångra klick",
+      "description": "Hemsidan har bara modals som går att stänga."
+    },
+    {
+      "title": "Ha en meningsfull fokusordning",
+      "description": "Har byggt in tabindex så att användaren kan navigera med tabb."
+    },
+    {
+      "title": "Markera tydligt vilket fält eller element som är i fokus",
+      "description": "Har lagt till focus i CSS som gör markering röd."
+    },
+    {
+      "title": "Märk upp vanliga formulärfält i koden",
+      "description": "Hemsidan har inga formulärfält."
+    },
+    {
+      "title": "Popup-funktioner ska kunna hanteras och stängas av alla",
+      "description": "Modals kan antingen stängas genom att klicka på krysset eller med Escape på tangentbordet."
+    },
+    {
+      "title": "Presentera innehållet i en meningsfull ordning för alla",
+      "description": "Innehållet följer en sekventiell ordning."
+    },
+    {
+      "title": "Se till att innehållet anpassas efter skärmens riktning",
+      "description": "Använder media query som bryter vid 768 pixlars bredd."
+    },
+    {
+      "title": "Se till att det går att öka avstånd mellan tecken, rader, stycken och ord",
+      "description": "Har satt in line-height och ökat avståndet mellan stycken."
+    },
+    {
+      "title": "Se till att hjälpmedel kan presentera meddelanden som inte är i fokus",
+      "description": "Sådan anpassning behövs inte."
+    },
+    {
+      "title": "Se till att koden validerar",
+      "description": "Har kört igenom HTML- och CSS-validator och kontrollerat JavaScript för eventuella konsolfel."
+    },
+    {
+      "title": "Se till att markören inte fastnar vid tangentbordsnavigation",
+      "description": "Testat att navigera hemsidan enbart med tangentbord och det fungerar."
+    },
+    {
+      "title": "Se till att skräddarsydda komponenter fungerar i hjälpmedel",
+      "description": "Hemsidan har anpassade modals och interaktioner. Dessa fungerar med tangentbordsnavigering och är markerade med role='dialog' samt aria-labelledby för att stödja skärmläsare."
+    },
+    {
+      "title": "Se till att text går att förstora utan problem",
+      "description": "Man kan zooma hemsidan utan problem och den anpassas till en columnrad om den blir för stor."
+    },
+    {
+      "title": "Se till att text på knappar och kontroller överensstämmer med maskinläsbara etiketter",
+      "description": "Har säkerställt att länkar och knappar har beskrivande text och att det överensstämmer."
+    },
+    {
+      "title": "Skapa en flexibel layout som fungerar vid förstoring eller liten skärm",
+      "description": "Testat och det fungerar bra i antingen 400% zoom vid 1280p eller 320p."
+    },
+    {
+      "title": "Skapa kortkommandon med varsamhet",
+      "description": "Hemsidan har inga kortkommandon."
+    },
+    {
+      "title": "Skapa tydliga och klickbara fältetiketter/ledtexter",
+      "description": "Inga formulär används på hemsidan."
+    },
+    {
+      "title": "Utför inga oväntade förändringar vid fokusering",
+      "description": "Hemsidan ändrar inte kontext vid fokusering. Fokusmarkeringar används enbart för synlighet och påverkar inte sidans flöde."
+    },
+    {
+      "title": "Utför inga oväntade förändringar vid inmatning",
+      "description": "Alla förändringar vid inmatning är förväntade och användaren har kontroll. Easter egg-funktionen aktiveras enbart om användaren skriver en specifik sekvens."
+    },
+    {
+      "title": "Utveckla systemet så att det går att hantera med enbart tangentbordet",
+      "description": "Det går alldeles utmärkt att bara använda tangentbordet då jag lagt till tabindex på flertalet element."
+    },
+    {
+      "title": "Visa var ett fel uppstått och beskriv det tydligt",
+      "description": "Har lagt till errormeddelanden som presenteras för besökaren ifall resume inte laddar in JSON eller om portfolio inte kan göra sitt API-anrop korrekt."
+    }
+]
