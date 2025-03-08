@@ -1,5 +1,9 @@
 @media print {
-    .navbar-container {
+    .navbar {
+        display: none !important;
+    }
+
+    .img-container {
         display: none !important;
     }
 

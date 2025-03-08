@@ -30,31 +30,34 @@ async function fetchGitHubRepos() {
             removeLoader();
         }, remainingTime); // Ensure the loader is displayed for at least 2 seconds
     } catch (error) {
+        setTimeout(() => {
         console.error("Error fetching GitHub repositories:", error);
+        displayErrorMessage("Failed to fetch GitHub repositories. Please try again later.");
         removeLoader();
+        }, 2000);
     }
 }
 
 // Function to display the fetched repositories on the portfolio page
 function displayRepos(repos) {
-    let numberTrack = 1;
     // Loop through the fetched repositories and display them on the portfolio page
-    repos.forEach(repo => {
+    repos.forEach((repo, index) => {
         const repoName = repo.name;
         const repoDescription = repo.description || "No description available.";
         const repoURL = repo.html_url;
 
         const repoHTML = `
-            <div class="portfolio-item">
+        <div class="repo-wrapper ${index % 2 === 0 ? "bg-lemonchiffon" : "bg-palegoldenrod"}">
+            <div class="repo-content">
                 <h3>${repoName.replace(/_/g, " ")}</h3>
                 <div class="button">
-                    <a href="#project${numberTrack}" onclick="showRepoModal(${numberTrack}); return false;">View More</a>
+                    <a href="#project${index}" onclick="showRepoModal(${index}); return false;"class="${index % 2 === 0 ? "bg-palegoldenrod" : "bg-lemonchiffon"}">View More</a>
                 </div>
             </div>
             <!-- Modal (hidden) -->
-            <div id="project${numberTrack}" class="modal">
+            <div id="project${index}" class="modal" role="dialog" aria-labelledby="project-title">
                 <div class="modal-content">
-                    <a href="#" class="close" onclick="hideRepoModal(${numberTrack}); return false;">&times;</a>
+                    <a href="#" class="close" onclick="hideRepoModal(${index}); return false;">&times;</a>
                     <h3>${repoName.replace(/_/g, " ")}</h3><br>
                     <p>${repoDescription}</p><br>
                     <a href="${repoURL}" target="_blank">View on GitHub</a>
@@ -62,7 +65,6 @@ function displayRepos(repos) {
             </div>`;
 
         repoContainer.innerHTML += repoHTML;
-        numberTrack++;
     });
 }
 
@@ -98,6 +100,8 @@ function getSixRepos(repos) {
 
 // Loader function to display a loading spinner while fetching data from the GitHub API
 function loader(callback) {
+    let rightSide = document.querySelector(".right-side");
+    if (!rightSide) return;
     // Create the loader
     let loader = document.createElement("div");
     loader.classList.add("loader");
@@ -105,8 +109,8 @@ function loader(callback) {
     let spinner = document.createElement("div");
     spinner.classList.add("spinner");
     loader.appendChild(spinner);
-    // Append the loader to the body
-    document.body.appendChild(loader);
+    // Append the loader to the .right-side section
+    rightSide.appendChild(loader);
     // Call the callback function to fetch the data
     if (callback) callback();
 }
@@ -124,4 +128,11 @@ function removeLoader() {
             if (content) content.style.display = "block";
         }, 500);
     }
+}
+
+function displayErrorMessage(message) {
+    let errorContainer = document.createElement("div");
+    errorContainer.classList.add("error-message");
+    errorContainer.textContent = message;
+    repoContainer.appendChild(errorContainer);
 }

@@ -1,6 +1,6 @@
 /* set the standard text format and color and box-control */
 * {
-    font-family: 'Courier New', Courier, 'Courier New';
+    font-family: "syne", serif;
     color: black;
     margin: 0;
     padding: 0;
@@ -9,9 +9,17 @@
 h2, h3 {
     margin-bottom: 10px;
     font-family: "Syne", serif;
+    line-height: 1.5;
+}
+
+h4 {
+    margin-bottom: 10px;
+    font-family: "Syne", serif;
+    line-height: 1.4;
 }
 
 p {
+    line-height: 1.6;
     margin-bottom: 10px;
 }
 
@@ -21,14 +29,26 @@ p {
     list-style-type: disc;
 }
 
-li {
-    margin-bottom: 5px;
+.right-side h2 {
+    background-color: palegoldenrod;
+    padding: 10px 15px; 
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 15px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    border: 2px solid black;
 }
 
+li {
+    margin-bottom: 5px;
+    line-height: 20px;
+}
 
 /* Body */
 body {
-    background-color: lemonchiffon;
+    /* background: radial-gradient(circle, lemonchiffon 35%, palegoldenrod 100%); */
+    background: radial-gradient(circle, rgb(241, 255, 184) 15%, rgb(76, 54, 55)) 100% center;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +59,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 4rem;
 }
 
 /* using flex and wrap to spread links from center */
@@ -77,6 +97,7 @@ header {
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 1);
     background-color: palegoldenrod;
     outline: 2px solid black;
+    font-weight: bold;
 }
 
 /* set active page as bold on link */
@@ -98,6 +119,7 @@ header {
 
 /* Container for infopages */
 .container {
+    background-color: lightgoldenrodyellow;
     width: 90%;
     max-width: 920px;
     min-height: 500px;
@@ -113,7 +135,7 @@ header {
 
 /* Set the different columns */
 .container .left-side {
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px 0px 0px 15px;
     -webkit-border-radius: 15px 0px 0px 15px;
     -moz-border-radius: 15px 0px 0px 15px;
@@ -121,14 +143,20 @@ header {
     -o-border-radius: 15px 0px 0px 15px;
 }
 
+.container .left-side h1 {
+    position: relative;
+    text-align: center;
+}
+
 .container .right-side {
-    background-color: palegoldenrod;
+    background-color: transparent;
     padding: 40px;
 }
 
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .container .left-side {
@@ -146,6 +174,50 @@ header {
         -ms-border-radius: 0px 0px 15px 15px;
         -o-border-radius: 0px 0px 15px 15px;
 }
+}
+
+.bg-lemonchiffon {
+    background-color: lemonchiffon;
+    border: solid 2px black;    
+}
+
+.bg-palegoldenrod {
+    background-color: palegoldenrod;
+    border: solid 2px black;
+}
+
+.edu-wrapper, .exp-wrapper, .repo-wrapper, .cert-wrapper {
+    margin: 10px -40px;
+    border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -ms-border-radius: 15px 15px 15px 15px;
+    -o-border-radius: 15px 15px 15px 15px;
+}
+
+.edu-content, .exp-content, .repo-content, .cert-content {
+    background-color: inherit;
+    padding: 15px 40px;
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    -ms-border-radius: inherit;
+    -o-border-radius: inherit;
+}
+
+.edu-wrapper::before {
+    content: "🎓 ";
+    font-size: 1.2rem;
+}
+
+.exp-wrapper::before {
+    content: "💼 ";
+    font-size: 1.2rem;
+}
+
+.cert-wrapper::before {
+    content: "📜 ";
+    font-size: 1.2rem;
 }
 
 .contact-box a {
@@ -166,8 +238,8 @@ header {
     padding-bottom: 30px;
 }
 
-.portfolio-item a {
-    background-color: lemonchiffon;
+.repo-wrapper .button a {
+    /* background-color: lemonchiffon; */
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 15px;
@@ -187,8 +259,9 @@ header {
     -o-transition: all 0.3s ease-out;
 }
 
-.button:hover {
+.button a:hover {
     font-weight: bold;
+    outline: 1px solid black;
 }
 
 .portfolio-item h3 {
@@ -332,7 +405,8 @@ header {
 }
 
 .right-side {
-    transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
 }
 
 /* Loader */
@@ -366,4 +440,15 @@ header {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
+/* Error message */
+.error-message {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid red;
+    background-color: #ffe6e6;
+    border-radius: 8px;
+}

@@ -29,6 +29,9 @@ function createSmiley() {
 
     let emojiContainer = document.createElement("div");
     emojiContainer.classList.add("emoji");
+    emojiContainer.setAttribute("aria-label", "Smiling face emoji");
+    emojiContainer.setAttribute("role", "eyes tracking");
+    emojiContainer.setAttribute("aria-labelledby", "click to remove");
     emojiContainer.innerHTML = `
         <div class='eyes'>
             <div class='eye'><div class='pupil'></div></div>
@@ -50,7 +53,10 @@ function createSmiley() {
 // ***** FUNCTION: Show Easter Egg Modal *****
 function showEasterEggModal() {
     let modal = document.createElement("div");
-    modal.classList.add("modal"); // Add show class for fade-in
+    modal.classList.add("modal"); // Add show class for fade-in effect
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-labelledby", "easterEggTitle");
+    modal.setAttribute("aria-describedby", "easterEggDescription");
     modal.innerHTML = `
         <div class="modal-content">
             <a href="#" class="close" onclick="hideEasterEggModal(this);">&times;</a>
@@ -142,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (easterEgg) {
         easterEgg.addEventListener("click", function() {
             document.body.style.backgroundColor = getRandomColor();
-            document.getElementsByClassName("right-side")[0].style.backgroundColor = getRandomColor();
+            document.body.style.background = `radial-gradient(circle, ${getRandomColor()} 15%, ${getRandomColor()}) 100%`;
         });
     }
 
@@ -154,5 +160,16 @@ document.addEventListener("DOMContentLoaded", function() {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
+    }
+});
+
+// ***** MODAL CLOSE ON ESCAPE KEY *****
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        let openModal = document.querySelector(".modal.show");
+        if (openModal) {
+            openModal.classList.add("hide");
+            setTimeout(() => openModal.classList.remove("show"), 500);
+        }
     }
 });

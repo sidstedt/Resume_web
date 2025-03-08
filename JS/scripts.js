@@ -36,10 +36,23 @@ function displayEducation(education) {
         return;
     }
 
-    education.forEach(edu => {
-        let listItem = document.createElement("li");
-        listItem.innerHTML = `<strong>${edu.title}</strong>, ${edu.school} (${edu.years})`;
-        educationContainer.appendChild(listItem);
+    education.forEach((edu, index) => {
+        let eduWrapper = document.createElement("section");
+        eduWrapper.classList.add('edu-wrapper', index % 2 === 0 ? 'bg-lemonchiffon' : 'bg-palegoldenrod');
+
+        let eduContent = document.createElement("div");
+        eduContent.classList.add('edu-content');
+
+        let schoolTitle = document.createElement("h3");
+        schoolTitle.innerHTML = `${edu.title} (${edu.years})`;
+        eduContent.appendChild(schoolTitle);
+
+        let schoolInfo = document.createElement("h4");
+        schoolInfo.innerHTML = `${edu.school}, ${edu.city}`;
+        eduContent.appendChild(schoolInfo);
+
+        eduWrapper.appendChild(eduContent);
+        educationContainer.appendChild(eduWrapper);
     });
 }
 
@@ -51,14 +64,26 @@ function displayExperience(experience) {
         return;
     }
 
-    experience.forEach(exp => {
+    let lastUsedColor = '';
+    experience.forEach((exp, index) => {
+        let expWrapper = document.createElement("article");
+        lastUsedColor = index % 2 === 0 ? 'bg-lemonchiffon' : 'bg-palegoldenrod';
+        expWrapper.classList.add('exp-wrapper', lastUsedColor);
+
+        let expContent = document.createElement("div");
+        expContent.classList.add('exp-content');
+
         let companyTitle = document.createElement("h3");
         companyTitle.textContent = `${exp.company} (${exp.years})`;
-        experienceContainer.appendChild(companyTitle);
+        expContent.appendChild(companyTitle);
 
         let jobTitle = document.createElement("h4");
         jobTitle.textContent = exp.position;
-        experienceContainer.appendChild(jobTitle);
+        expContent.appendChild(jobTitle);
+
+        let city = document.createElement("p");
+        city.textContent = exp.city;
+        expContent.appendChild(city);
 
         let responsibilitiesList = document.createElement("ul");
         exp.responsibilities.forEach(resp => {
@@ -67,11 +92,15 @@ function displayExperience(experience) {
             responsibilitiesList.appendChild(listItem);
         });
 
-        experienceContainer.appendChild(responsibilitiesList);
+        expContent.appendChild(responsibilitiesList);
+        expWrapper.appendChild(expContent);
+        experienceContainer.appendChild(expWrapper);
     });
+    
+    let oppositeColor = lastUsedColor === 'bg-lemonchiffon' ? 'bg-palegoldenrod' : 'bg-lemonchiffon';
+    sessionStorage.setItem("oppositeColor", oppositeColor);
 }
 
-// Displays certifications on the resume page
 function displayCertifications(certifications) {
     let certContainer = document.getElementById("certifications-list");
     if (!certContainer) {
@@ -79,9 +108,23 @@ function displayCertifications(certifications) {
         return;
     }
 
+    let oppositeColor = sessionStorage.getItem("oppositeColor") || 'bg-lemonchiffon';
+
+    let certWrapper = document.createElement("section");
+    certWrapper.classList.add('cert-wrapper', oppositeColor);
+
+    let certContent = document.createElement("div");
+    certContent.classList.add('cert-content');
+
+    let certList = document.createElement("ul");
+
     certifications.forEach(cert => {
         let listItem = document.createElement("li");
         listItem.textContent = cert;
-        certContainer.appendChild(listItem);
+        certList.appendChild(listItem);
     });
+
+    certContent.appendChild(certList);
+    certWrapper.appendChild(certContent);
+    certContainer.appendChild(certWrapper);
 }
