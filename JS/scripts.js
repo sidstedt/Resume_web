@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 // Fetches resume data from resume.json
 async function loadResumeData() {
     try {
-        const response = await fetch("/Data/resume.json");
+        const response = await fetch("/JSON/resume.json");
         if (!response.ok) {
             throw new Error(`Failed to load resume.json: ${response.status} ${response.statusText}`);
         }
@@ -96,7 +96,7 @@ function displayExperience(experience) {
         expWrapper.appendChild(expContent);
         experienceContainer.appendChild(expWrapper);
     });
-    
+
     let oppositeColor = lastUsedColor === 'bg-lemonchiffon' ? 'bg-palegoldenrod' : 'bg-lemonchiffon';
     sessionStorage.setItem("oppositeColor", oppositeColor);
 }
