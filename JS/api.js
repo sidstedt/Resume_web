@@ -47,15 +47,20 @@ function displayRepos(repos) {
         const repoURL = repo.html_url;
 
         const repoHTML = `
-        <div class="repo-wrapper ${index % 2 === 0 ? "bg-lemonchiffon" : "bg-palegoldenrod"}">
+        <div class="repo-wrapper ${index % 2 === 0 ? "bg-lemonchiffon" : "bg-palegoldenrod"}"
+            aria-label="GitHub repository: ${repoName}, ${repoDescription}">
             <div class="repo-content">
                 <h3>${repoName.replace(/_/g, " ")}</h3>
                 <div class="button">
-                    <a href="#project${index}" onclick="showRepoModal(${index}); return false;"class="${index % 2 === 0 ? "bg-palegoldenrod" : "bg-lemonchiffon"}">View More</a>
+                    <a href="#project${index}" onclick="showRepoModal(${index}); return false;"class="${index % 2 === 0 ? "bg-palegoldenrod" : "bg-lemonchiffon"}">
+                        View More
+                    </a>
                 </div>
             </div>
             <!-- Modal (hidden) -->
-            <div id="project${index}" class="modal" role="dialog" aria-labelledby="project-title">
+            <div id="project${index}" class="modal" role="dialog" 
+                aria-labelledby="project-title${index}"
+                aria-describedby="project-description${index}">
                 <div class="modal-content">
                     <a href="#" class="close" onclick="hideRepoModal(${index}); return false;">&times;</a>
                     <h3>${repoName.replace(/_/g, " ")}</h3><br>
@@ -133,6 +138,17 @@ function removeLoader() {
 function displayErrorMessage(message) {
     let errorContainer = document.createElement("div");
     errorContainer.classList.add("error-message");
-    errorContainer.textContent = message;
+    errorContainer.setAttribute("role");
+    
+    // Add role="alert" to the error container for accessibility
+    let errorSymbol = document.createElement("span");
+    errorSymbol.textContent = "⚠️";
+    errorSymbol.setAttribute("aria-hidden", "true");
+    
+    let errorText = document.createElement("span");
+    errorText.textContent = message;
+
+    errorContainer.appendChild(errorSymbol);
+    errorContainer.appendChild(errorText);
     repoContainer.appendChild(errorContainer);
 }

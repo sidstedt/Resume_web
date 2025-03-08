@@ -73,7 +73,6 @@ header {
 /* styling on links */
 .navbar li a {
     font-family: "Syne", serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     display: inline-block;
@@ -178,12 +177,12 @@ header {
 
 .bg-lemonchiffon {
     background-color: lemonchiffon;
-    border: solid 2px black;    
+    border: solid 1px black;    
 }
 
 .bg-palegoldenrod {
     background-color: palegoldenrod;
-    border: solid 2px black;
+    border: solid 1px black;
 }
 
 .edu-wrapper, .exp-wrapper, .repo-wrapper, .cert-wrapper {
@@ -452,3 +451,26 @@ header {
     background-color: #ffe6e6;
     border-radius: 8px;
 }
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: #ffd700;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+:focus {
+    outline: none; /* Ta bort standardfokus */
+    border: 2px solid red; /* Lägg till en svart gräns */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Lägg till en skugga */
+}
+

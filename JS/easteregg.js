@@ -31,7 +31,7 @@ function createSmiley() {
     emojiContainer.classList.add("emoji");
     emojiContainer.setAttribute("aria-label", "Smiling face emoji");
     emojiContainer.setAttribute("role", "eyes tracking");
-    emojiContainer.setAttribute("aria-labelledby", "click to remove");
+    emojiContainer.setAttribute("aria-labelledby", "Smiley face that tracks mouse movement, click to remove");
     emojiContainer.innerHTML = `
         <div class='eyes'>
             <div class='eye'><div class='pupil'></div></div>
@@ -53,14 +53,14 @@ function createSmiley() {
 // ***** FUNCTION: Show Easter Egg Modal *****
 function showEasterEggModal() {
     let modal = document.createElement("div");
-    modal.classList.add("modal"); // Add show class for fade-in effect
+    modal.classList.add("modal");
     modal.setAttribute("role", "dialog");
     modal.setAttribute("aria-labelledby", "easterEggTitle");
     modal.setAttribute("aria-describedby", "easterEggDescription");
     modal.innerHTML = `
         <div class="modal-content">
             <a href="#" class="close" onclick="hideEasterEggModal(this);">&times;</a>
-            <h3>You have unlocked the Easter Egg!</h3>
+            <h3>You have unlocked the Easter Egg! 🎉</h3>
             <p>A hidden feature has been activated!</p>
         </div>`;
     
@@ -147,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (easterEgg) {
         easterEgg.addEventListener("click", function() {
-            document.body.style.backgroundColor = getRandomColor();
             document.body.style.background = `radial-gradient(circle, ${getRandomColor()} 15%, ${getRandomColor()}) 100%`;
         });
     }

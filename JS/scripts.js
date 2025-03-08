@@ -24,7 +24,9 @@ async function loadResumeData() {
         }
         return await response.json();
     } catch (error) {
-        throw new Error("Error fetching resume.json: " + error.message);
+        console.error("Error fetching resume.json:", error);
+        displayErrorMessage("Failed to load resume data. Please try again later.");
+        return null;
     }
 }
 
@@ -36,9 +38,16 @@ function displayEducation(education) {
         return;
     }
 
+    let eduHeader = document.createElement("h2");
+    eduHeader.textContent = "Education";
+    educationContainer.appendChild(eduHeader);
+
     education.forEach((edu, index) => {
         let eduWrapper = document.createElement("section");
         eduWrapper.classList.add('edu-wrapper', index % 2 === 0 ? 'bg-lemonchiffon' : 'bg-palegoldenrod');
+        eduWrapper.setAttribute("tabindex", "0");
+        // Add aria-label to the education section for accessibility
+        eduWrapper.setAttribute("aria-label", `Education: ${edu.title}, ${edu.school}, ${edu.years}`);
 
         let eduContent = document.createElement("div");
         eduContent.classList.add('edu-content');
@@ -65,10 +74,18 @@ function displayExperience(experience) {
     }
 
     let lastUsedColor = '';
+
+    let expHeader = document.createElement("h2");
+    expHeader.textContent = "Experience";
+    experienceContainer.appendChild(expHeader);
+
     experience.forEach((exp, index) => {
         let expWrapper = document.createElement("article");
         lastUsedColor = index % 2 === 0 ? 'bg-lemonchiffon' : 'bg-palegoldenrod';
         expWrapper.classList.add('exp-wrapper', lastUsedColor);
+        expWrapper.setAttribute("tabindex", "0");
+        // Add aria-label to the experience section for accessibility
+        expWrapper.setAttribute("aria-label", `Experience: ${exp.position} at ${exp.company}, ${exp.years}`);
 
         let expContent = document.createElement("div");
         expContent.classList.add('exp-content');
@@ -107,11 +124,18 @@ function displayCertifications(certifications) {
         console.error("Element with ID 'certifications-list' not found");
         return;
     }
+    
+    let certificationsHeader = document.createElement("h2");
+    certificationsHeader.textContent = "Certifications";
+    certContainer.appendChild(certificationsHeader);
 
     let oppositeColor = sessionStorage.getItem("oppositeColor") || 'bg-lemonchiffon';
 
     let certWrapper = document.createElement("section");
     certWrapper.classList.add('cert-wrapper', oppositeColor);
+    certWrapper.setAttribute("tabindex", "0");
+    // Add aria-label to the certifications section for accessibility
+    certWrapper.setAttribute("aria-label", "List of certifications");
 
     let certContent = document.createElement("div");
     certContent.classList.add('cert-content');
@@ -127,4 +151,25 @@ function displayCertifications(certifications) {
     certContent.appendChild(certList);
     certWrapper.appendChild(certContent);
     certContainer.appendChild(certWrapper);
+}
+
+function displayErrorMessage(message) {
+    let errorContainer = document.createElement("div");
+    errorContainer.classList.add("error-message");
+    errorContainer.setAttribute("role", "alert");
+
+    let errorSymbol = document.createElement("span");
+    errorSymbol.textContent = "⚠️";
+    errorSymbol.setAttribute("aria-hidden", "true");
+    
+    let errorText = document.createElement("span");
+    errorText.textContent = message;
+
+    errorContainer.appendChild(errorSymbol);
+    errorContainer.appendChild(errorText);
+
+    let rightSide = document.querySelector(".right-side");
+    if (rightSide) {
+        rightSide.appendChild(errorContainer);
+    }
 }
